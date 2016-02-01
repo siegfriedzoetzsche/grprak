@@ -1,7 +1,4 @@
 * <2016-02-01 Mon>
-** account
-| pw   | DCwdTniNs76  |
-| user | grapraktikum |
 ** von Sarah
 #+NAME code von sarah
 #+BEGIN_SRC shell
