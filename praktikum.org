@@ -1,0 +1,37 @@
+* <2016-02-01 Mon>
+** account
+| pw   | DCwdTniNs76  |
+| user | grapraktikum |
+** von Sarah
+#+NAME code von sarah
+#+BEGIN_SRC shell
+mkdir Name
+cd Name
+scp -r grpraktikum@prak10:~/sarah/Final .
+#+END_SRC
+** start RuleEditor
+#+NAME start RuleEditor
+#+BEGIN_SRC shell
+cd ~/Siggi/vonSarah/Final
+java -jar RuleEditor.jar
+
+
+#+END_SRC
+
+   
+** RuleEditor
+   there is an edit 'both sides' checkbox
+** tasks
+   1. catalan game
+   2. chemistry
+      autocatalytic cycles
+      
+** playground
+[[http://cheminf.imada.sdu.dk/mod/playground.html][playground]]
+** try MedØlDatschgerl
+   1. copy 2 files from [[/u/home/grpraktikum/rojin/ex/1.py]] and [[/u/home/grpraktikum/rojin/ex/run1.py]]
+   2. run:
+      #+NAME run MedØlDatschgerl
+      #+BEGIN_SRC shell
+      mod -f run1.py
+      #+END_SRC

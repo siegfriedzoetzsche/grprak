@@ -1,0 +1,17 @@
+rule [
+	ruleID "Test1"
+	left [
+		node [ id 2 label "0" vis2d [ x -353.5338439941406 y 43.7593994140625 ] ]
+		node [ id 3 label "0" vis2d [ x -133.9849853515625 y 76.84213256835938 ] ]
+		node [ id 4 label "0" vis2d [ x -297.8947448730469 y 263.30828857421875 ] ]
+		edge [ source 4 target 1 label "" ]
+		edge [ source 1 target 2 label "" ]
+		edge [ source 1 target 3 label "" ]
+	]
+	context [
+		node [ id 1 label "0" vis2d [ x -269.32330322265625 y 124.96243286132812 ] ]
+	]
+	right [
+	]
+
+]
