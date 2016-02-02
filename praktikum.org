@@ -1,7 +1,13 @@
 * <2016-02-01 Mon>
+** sourcen
+#+NAME source mod stuff
+#+BEGIN_SRC shell
+ls /homes/brauerei2
+source /homes/brauerei2/jlandersen/shared/setEnv.sh
+#+END_SRC
 ** account
-| pw   | DCwdTniNs76  |
-| user | grapraktikum |
+| grpraktikum |
+| DCwdTniNs76 |
 ** von Sarah
 #+NAME code von sarah
 #+BEGIN_SRC shell
@@ -126,3 +132,31 @@ catalanLevel2.print()
 
 ]
 """, name="Catalan Level 2")
+** template for flows
+#+BEGIN_SRC shell
+scp -r prak01:
+   catalan-template
+#+END_SRC
+
+* Praktikumsabschluss
+** <2016-02-22 Mon> 17:30
+
+  1. Given G solve the catalan game
+  2. For the levels:
+     - How long does it take to solve?
+     - Is the machine faster than you?
+  3. Inverse: how many graph with k=4, 5, ... k nodes are Catalan-solvable
+
+** Pizza
+** Beer
+* Seminartermine
+|------------------+--------------|
+| <2016-02-23 Tue> | 10:30--12:30 |
+|------------------+--------------|
+| <2016-02-25 Thu> | 10:30--13:30 |
+|                  | 14:00--15:30 |
+|                  | 16:00--17:30 |
+|------------------+--------------|
+| <2016-02-26 Fri> | 10:30--12:30 |
+|                  | 14:00--16:00 |
+|------------------+--------------|

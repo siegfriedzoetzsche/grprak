@@ -11,24 +11,28 @@ postSection("Input Graphs")
 # for a in inputRules:
 #  	a.print()
 
-strat0 = (
-        addUniverse(SIMPLE_BLOSSOM)
-        # >> 
-        #addSubset(SIMPLE_BLOSSOM)
-        # >> repeat[1] (
-        >> mark
-        # )        
-)
+# strat0 = (
+#         addUniverse(SIMPLE_BLOSSOM)
+#         # >> 
+#         #addSubset(SIMPLE_BLOSSOM)
+#         # >> repeat[1] (
+#         >> mark
+#         # )        
+# )
 
 strat = (
         addUniverse(SIMPLE_BLOSSOM)
         >> addSubset(SIMPLE_BLOSSOM)
         >> mark
-        >> 
+        >> markForFail
+        >> removeInterR
+        >> reattachExternal
+        >> removeAttached
+        >> removeR
         >> unmark
 )
 
-dg = dgRuleComp(inputGraphs, strat0)
+dg = dgRuleComp(inputGraphs, strat)
 dg.calc()
 dg.print()
 
