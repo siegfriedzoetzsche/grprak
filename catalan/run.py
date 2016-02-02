@@ -21,13 +21,10 @@ strat0 = (
 )
 
 strat = (
-        #addUniverse(SIMPLE_BLOSSOM)
-        #>> 
-        addSubset(SIMPLE_BLOSSOM)
+        addUniverse(SIMPLE_BLOSSOM)
+        >> addSubset(SIMPLE_BLOSSOM)
         >> mark
-        >> revive(
-                markForFail
-        )
+        >> 
         >> unmark
 )
 
