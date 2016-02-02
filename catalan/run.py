@@ -1,5 +1,5 @@
 include("catalanRules.py")
-include("lvl2.py")
+include("catalanLevels.py")
 postSection("Input Graphs")
 for a in inputGraphs:
 	a.print()

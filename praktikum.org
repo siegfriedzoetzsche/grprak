@@ -108,3 +108,21 @@ graph [
 """, name="Catalan Level 2")
 catalanLevel2.print()
 #+END_SRC
+* <2016-02-02 Tue>
+** levels.txt umbauen
+
+#+NAME bla
+#+BEGIN_SRC emacs-lisp
+(defun levelsToGML()
+  (interactive)
+  (beginning-of-buffer)
+  ;(save-excursion (query-replace-regexp "|.*\n\n" "\n\n"))
+  ;(save-excursion (query-replace-regexp "\nE " " = graphGMLString(\"\"\"\ngraph [\n"))
+  ;(save-excursion (query-replace-regexp "\\([A-Z ]+\\)\\( = graphGMLString\\)\\([^§]+?\\)\n\n"					"\\1\\2\\3\n]\n\"\"\", name=\"\\1\")\n\n"))
+  ;(save-excursion (query-replace-regexp "\\([A-Z]\\) \\([A-Z]\\)" "\\1_\\2"))
+  (save-excursion (query-replace-regexp "[\s]*\\([0-9]+\\),\\([0-9]+\\)" "    edge[source \\1 target \\2 label=\"\"]\n"))
+)
+#+END_SRC
+
+]
+""", name="Catalan Level 2")
