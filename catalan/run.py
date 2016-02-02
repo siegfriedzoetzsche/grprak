@@ -20,16 +20,24 @@ postSection("Input Graphs")
 #         # )        
 # )
 
+# LEVEL = FIRST_LEVEL
+LEVEL = SIMPLE_BLOSSOM
+
 strat = (
-        addUniverse(SIMPLE_BLOSSOM)
-        >> addSubset(SIMPLE_BLOSSOM)
+        addUniverse(LEVEL)
+        >> addSubset(LEVEL)
         >> mark
-        >> markForFail
-        >> removeInterR
-        >> reattachExternal
-        >> removeAttached
-        >> removeR
-        >> unmark
+        >> revive(markForFail)
+        >> #repeat[1](
+                revive(
+                        reattachExternal
+                )
+        #)
+        # >> removeInterR
+        # >> reattachExternal
+        # >> removeAttached
+        # >> removeR
+        # >> unmark
 )
 
 dg = dgRuleComp(inputGraphs, strat)
