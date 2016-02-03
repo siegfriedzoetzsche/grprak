@@ -11,15 +11,6 @@ postSection("Input Graphs")
 # for a in inputRules:
 #  	a.print()
 
-# strat0 = (
-#         addUniverse(SIMPLE_BLOSSOM)
-#         # >> 
-#         #addSubset(SIMPLE_BLOSSOM)
-#         # >> repeat[1] (
-#         >> mark
-#         # )        
-# )
-
 # LEVEL = FIRST_LEVEL
 LEVEL = SIMPLE_BLOSSOM
 
@@ -27,11 +18,11 @@ strat = (
         addUniverse(LEVEL)
         >> addSubset(LEVEL)
         >> mark
-        >> revive(markForFail)
-        >> #repeat[1](
-                revive(
-                        reattachExternal
-                )
+        # >> revive(markForFail)
+        # >> #repeat[1](
+        #         revive(
+        #                 reattachExternal
+        #         )
         #)
         # >> removeInterR
         # >> reattachExternal

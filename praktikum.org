@@ -138,6 +138,9 @@ scp -r prak01:
    catalan-template
 #+END_SRC
 
+* <2016-02-03 Wed>
+** constraints zu regeln Hinzufuegen
+
 * Praktikumsabschluss
 ** <2016-02-22 Mon> 17:30
 
@@ -160,3 +163,8 @@ scp -r prak01:
 | <2016-02-26 Fri> | 10:30--12:30 |
 |                  | 14:00--16:00 |
 |------------------+--------------|
+
+
+* Zu schliessen lassen:
+  3. Stock Frau Pregel oder irgendjemanden fragen
+  445 
