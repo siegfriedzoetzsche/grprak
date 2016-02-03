@@ -1,0 +1,16 @@
+Input --------------------------------------------------------------
+(see out/input)
+Command ------------------------------------------------------------
+ python3 out/input
+Running VM ---------------------------------------------------------
+Executing code from 'run.py'
+Traceback (most recent call last):
+  File "out/input", line 45, in <module>
+    include("run.py")
+  File "out/input", line 19, in include
+    ino = os.stat(fPrefixed).st_ino
+FileNotFoundError: [Errno 2] No such file or directory: 'run.py'
+
+real	0m0.188s
+user	0m0.127s
+sys	0m0.016s

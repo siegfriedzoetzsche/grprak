@@ -162,7 +162,7 @@ scp -r prak01:
 
     We want to have it as a integer linear program.
 
-
+** [[file:///homes/brauerei2/jlandersen/shared/doc/index.html][mod manual]]
 
 * Praktikumsabschluss
 ** <2016-02-22 Mon> 17:30

@@ -1,4 +1,4 @@
-include("catalanRules.py")
+include("catalanBuildRules.py")
 include("catalanLevels.py")
 # postSection("Input Graphs")
 # for a in inputGraphs:
@@ -8,30 +8,14 @@ include("catalanLevels.py")
 # for a in inputRules:
 #  	a.print()
 
-#LEVEL = FIRST_LEVEL
-#LEVEL = SIMPLE_BLOSSOM
-#LEVEL = HONEY_SUCKLE
-#LEVEL = DRAGON
-#LEVEL = TRIAD
-#LEVEL = TREE
-#LEVEL = MASK
-LEVEL = FLOTSAM
-#LEVEL = SHALLOW_GRAVE
-#LEVEL = SUBWAY
-postSection("Catalan level to solve")
-LEVEL.print()
+LEVEL = SUCCESS
 
 strat1 = (
     addUniverse(LEVEL)
     >> addSubset(LEVEL)
-    >> repeat(
-        mark
-        >> repeat(revive(reattachExternal))
-        >> repeat(revive(removeAttached))
-        >> repeat(revive(removeInterR))
-        >> removeR
-        >> unmark
-    )
+    >> addThreeNodes
+    >> repeat(revive(addEdge))
+    >> revive(addThreeNodes)
 )
 
 strat = strat1
@@ -40,7 +24,7 @@ dg = dgRuleComp(inputGraphs, strat)
 dg.calc()
 
 dgPrinter = DGPrinter()
-dgPrinter.withGraphImages = False # be careful, the derivation graphs can become quite large
+dgPrinter.withGraphImages = True # False # be careful, the derivation graphs can become quite large
 dg.print(dgPrinter)
 
 flowPrinter = DGFlowPrinter()
