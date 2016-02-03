@@ -9,6 +9,12 @@
 #     http://ded.increpare.com/~locus/catalan_src.zip             #
 ###################################################################
 
+SUCCESS = graphGMLString("""
+graph [
+    node[id 0 label "0"]
+]
+""", name="SUCCESS")
+
 FIRST_LEVEL = graphGMLString("""
 graph [
     node[id 0 label "0"]

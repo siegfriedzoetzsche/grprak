@@ -33,7 +33,7 @@ java -jar RuleEditor.jar
       autocatalytic cycles
       
 ** playground
-[[http://cheminf.imada.sdu.dk/mod/playground.html][playground]]
+   [[http://cheminf.imada.sdu.dk/mod/playground.html][playground]]
 ** try MedØlDatschgerl
    1. copy 2 files from [[/u/home/grpraktikum/rojin/ex/1.py]] and [[/u/home/grpraktikum/rojin/ex/run1.py]]
    2. run:
@@ -137,9 +137,32 @@ catalanLevel2.print()
 scp -r prak01:
    catalan-template
 #+END_SRC
-
+   
 * <2016-02-03 Wed>
 ** constraints zu regeln Hinzufuegen
+
+** Lecture: chemistry stuff
+
+*** autocatalytic cycles
+
+    #+RESULTS:
+    #+BEGIN_LaTeX
+    \begin{equation}
+    \label{eq:1}
+    \mathrm{F} + \mathrm{A} \rightarrow 2 \mathrm{A} + \mathrm{W}
+    \end{equation}
+    #+END_LaTeX
+
+    How to specify autocatalysis in a linear programming language.
+
+    Build a formose reaction.
+    Get constraints on the size.
+    Restrict the size of the molecules in terms of number of C atoms.
+    What do the pathways look like?
+
+    We want to have it as a integer linear program.
+
+
 
 * Praktikumsabschluss
 ** <2016-02-22 Mon> 17:30
