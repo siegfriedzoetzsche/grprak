@@ -164,6 +164,15 @@ scp -r prak01:
 
 ** [[file:///homes/brauerei2/jlandersen/shared/doc/index.html][mod manual]]
 
+* <2016-02-04 Thu>
+** [[https://de.wikibooks.org/wiki/Reaktionsmechanismen_der_Organischen_Chemie][OC Mechanismen]]
+
+** for which combination of rules do we get a complete universe?
+** for which combination of rules do we only get a subset of the universe?
+** interesting case: is there a set of starting molecules, that will get you a bigt universe
+*** so grow molecules -> we need rules that add C-C bonds
+*** 
+
 * Praktikumsabschluss
 ** <2016-02-22 Mon> 17:30
 
