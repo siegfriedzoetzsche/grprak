@@ -1,36 +1,26 @@
-include("catalanBuildRules.py")
+#include("catalanBuildRules.py")
+include("catalanBuildRulesSimon.py")
 include("catalanLevels.py")
 # postSection("Input Graphs")
 # for a in inputGraphs:
 #         a.print()
 
-# postSection("Input Rules")
-# for a in inputRules:
-#  	a.print()
+postSection("Input Rules")
+for a in inputRules:
+  	a.print()
 
 LEVEL = SUCCESS
 
 strat1 = (
-    # add just one node with label "0"
-    addUniverse(LEVEL)
-    >> addSubset(LEVEL)
-    # expand a node with vertex degree 0
-    >> dZeroExpand
-    # add 0, 1, 2 or 3 edges beween the arms of the star
-    >> {
-        addZeroInterREdges,
-        addOneInterREdge,
-        addTwoInterREdges,
-        addThreeInterREdges,
-    }
-    # expand further
-    >> {dOneExpand, dTwoExpandOne}
-    >> {
-        addZeroInterREdges,
-        addOneInterREdge,
-        addTwoInterREdges,
-        addThreeInterREdges,
-    }
+        # add just one node with label "0"
+        addUniverse(LEVEL)
+        >> addSubset(LEVEL)
+        >> repeat[3](
+                # expand a node with vertex degree 0
+                expandNode
+                >> repeat(revive({move0_1R, move0_2R, move0_3R}))
+                >> {addZeroInterREdges, addOneInterREdge, addTwoInterREdges, addThreeInterREdges}
+        )
 )
 
 strat = strat1
@@ -39,7 +29,7 @@ dg = dgRuleComp(inputGraphs, strat)
 dg.calc()
 
 dgPrinter = DGPrinter()
-dgPrinter.withGraphImages = True # False # be careful, the derivation graphs can become quite large
+dgPrinter.withGraphImages = False # be careful, the derivation graphs can become quite large
 dg.print(dgPrinter)
 
 # flowPrinter = DGFlowPrinter()

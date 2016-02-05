@@ -3,14 +3,14 @@ Input --------------------------------------------------------------
 Command ------------------------------------------------------------
  python3 out/input
 Running VM ---------------------------------------------------------
-Executing code from 'run.py'
+Executing code from 'build.py'
 Traceback (most recent call last):
   File "out/input", line 45, in <module>
-    include("run.py")
+    include("build.py")
   File "out/input", line 19, in include
     ino = os.stat(fPrefixed).st_ino
-FileNotFoundError: [Errno 2] No such file or directory: 'run.py'
+FileNotFoundError: [Errno 2] No such file or directory: 'build.py'
 
-real	0m0.188s
-user	0m0.127s
-sys	0m0.016s
+real	0m3.029s
+user	0m0.133s
+sys	0m0.031s

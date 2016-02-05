@@ -42,4 +42,4 @@ def include(fName, checkDup=True, putDup=True, skipDup=True):
 		print("End of code from '", fName, "'", sep="")
 mod.include = include
 # From command line arguments
-include("run.py")
+include("build.py")
