@@ -27,46 +27,6 @@ graph [
 ]
 """, name="FIRST LEVEL")
 
-K2 = graphGMLString("""
-graph[
-    node[id 0 label "0"]
-    node[id 1 label "0"]
-    edge[source 0 target 1 label ""]
-]
-""", name="K2")
-
-N3E1 = graphGMLString("""
-graph[
-    node[id 0 label "0"]
-    node[id 1 label "0"]
-    node[id 2 label "0"]
-    edge[source 0 target 1 label ""]
-]
-""", name="N3E1")
-
-N3E2 = graphGMLString("""
-graph[
-    node[id 0 label "0"]
-    node[id 1 label "0"]
-    node[id 2 label "0"]
-    edge[source 0 target 1 label ""]
-    edge[source 2 target 1 label ""]
-]
-""", name="N3E2")
-
-
-K3 = graphGMLString("""
-graph[
-    node[id 0 label "0"]
-    node[id 1 label "0"]
-    node[id 2 label "0"]
-    edge[source 0 target 1 label ""]
-    edge[source 2 target 1 label ""]
-    edge[source 0 target 2 label ""]
-]
-""", name="K3")
-
-
 SIMPLE_BLOSSOM = graphGMLString("""
 graph [
     node[id 0 label "0"]
