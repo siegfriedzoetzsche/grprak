@@ -1,0 +1,10 @@
+
+out/000_dg_0_1010.coord.tex:
+	/homes/brauerei2/jlandersen/shared/bin/../bin/mod_post --mode coordsFromGV dgHyper "out/000_dg_0_1010" 
+out/000_dg_0_1010.plain: out/000_dg_0_1010.coord.tex
+	/homes/brauerei2/jlandersen/shared/bin/../bin/mod_post --mode coordsFromGV dgHyper "out/000_dg_0_1010" 
+out/001_dg_0_1010.pdf: out/000_dg_0_1010.coord.tex
+	/homes/brauerei2/jlandersen/shared/bin/../bin/mod_post --mode compileTikz "out/001_dg_0_1010" "out/000_dg_0_1010.coord"
+out/002_dgNonHyper_0.pdf: out/002_dgNonHyper_0.dot
+	echo -n 'gv(dgNonHyper) '
+	dot -Tpdf -Gbgcolor=transparent -Gpad=0.01 -Gmargin=0 -Kneato -Goverlap=false -Elen=1.1  -o out/002_dgNonHyper_0.pdf out/002_dgNonHyper_0.dot

@@ -1,0 +1,10 @@
+SHELL=/bin/bash
+summary/all.tex: gen
+	echo '\summaryDGHyper{\texttt{dg\_0}}{out/001_dg_0_1010}{\texttt{out/001\_dg\_0\_1010}}' >> summary/all.tex
+	echo '\summaryDGNonHyper{\texttt{dg\_0}}{out/002_dgNonHyper_0}{\texttt{out/002\_dgNonHyper\_0}}' >> summary/all.tex
+summary.pdf: summary/all.tex
+	/homes/brauerei2/jlandersen/shared/bin/../bin/mod_post --mode compileSummary
+include summary/MakefileImpl
+include summary/MakefileDep
+include summary/MakefileAllTarget
+include summary/MakefileClean
