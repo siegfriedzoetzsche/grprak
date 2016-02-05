@@ -3,33 +3,23 @@ Input --------------------------------------------------------------
 Command ------------------------------------------------------------
  python3 out/input
 Running VM ---------------------------------------------------------
-Executing code from 'catalanGrammarK1seed.py'
+Executing code from 'catalanGrammarTRIRseed.py'
 Executing code from 'catalanBuildRulesSimon.py'
 End of code from 'catalanBuildRulesSimon.py'
-Executing code from 'K1.py'
-End of code from 'K1.py'
+Executing code from 'trirSeed.py'
+End of code from 'trirSeed.py'
 Repeat, limit = 2
    Substrat 0
       Repeat, limit = 4294967295
          Substrat 0
-         Got 1 graphs
+         Got 3 graphs
          Substrat 1
-         Got 1 graphs
-   Got 4 graphs
+         Got 9 graphs
+         Substrat 2
+         Got 23 graphs
+         Substrat 3
+         Got 23 graphs
+   Got 125 graphs
    Substrat 1
       Repeat, limit = 4294967295
          Substrat 0
-         Got 33 graphs
-         Substrat 1
-         Got 90 graphs
-         Substrat 2
-         Got 164 graphs
-         Substrat 3
-         Got 164 graphs
-   Got 665 graphs
-Notice: Calculation of derivation graph done.
-End of code from 'catalanGrammarK1seed.py'
-
-real	0m2.000s
-user	0m1.933s
-sys	0m0.037s
