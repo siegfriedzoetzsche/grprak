@@ -1,0 +1,142 @@
+* catalan solver
+- no *FAIL* label
+- instead: *constraintAdj[id 0 op = count 3]* for mark rule
+- [[./solver-summary.pdf][rules pdf]] and example 
+- [[./solver-shallow-grave.pdf][shallow grave pdf]]
+- [[./solver-shallow-grave-path.pdf][shallow grave path pdf]]
+* Rules
+** mark
+#+Name mark rule
+#+BEGIN_SRC python
+mark = ruleGMLString("""
+rule[
+    ruleID "mark"
+    left[
+        node[id 0 label "0"]
+        node[id 1 label "0"]
+        node[id 2 label "0"]
+        node[id 3 label "0"]       
+    ]
+    context[
+        edge[source 0 target 1 label ""]
+        edge[source 0 target 2 label ""]
+        edge[source 0 target 3 label ""]
+    ]
+    right[
+        node[id 0 label "A"]
+        node[id 1 label "R"]
+        node[id 2 label "R"]
+        node[id 3 label "R"]               
+    ]
+    constrainAdj [
+        id 0
+        op = count 3
+    ]
+]
+""")
+#+END_SRC
+** reattachExternal
+#+Name
+#+BEGIN_SRC python
+reattachExternal = ruleGMLString("""
+rule[
+    ruleID "reattachExternal"
+    left[
+        edge[source 1 target 2 label ""]
+    ]
+    context[
+        node[id 0 label "A"]
+        node[id 1 label "0"]
+        node[id 2 label "R"]
+        node[id 3 label "R"]
+        edge[source 0 target 2 label ""]
+        edge[source 0 target 3 label ""]
+    ]
+    right[
+        edge[source 1 target 0 label ""]
+    ]
+    constrainAdj[
+        id 1
+        op = count 0 nodeLabels [label "A"]
+    ]
+]
+""")
+#+END_SRC
+** removeAttached
+#+Name
+#+BEGIN_SRC python
+removeAttached = ruleGMLString("""
+rule[
+    ruleID "removeAttached"
+    left[
+        edge[source 1 target 2 label ""]
+    ]
+    context[
+        node[id 0 label "A"]
+        node[id 1 label "R"]
+        node[id 2 label "R"]
+        edge[source 0 target 1 label ""]
+        edge[source 0 target 2 label ""]
+    ]
+    right[
+    ]
+]
+""")
+#+END_SRC
+** removeR
+#+Name
+#+BEGIN_SRC python
+removeR = ruleGMLString("""
+rule[
+    ruleID "removeR"
+    left[
+        node[id 1 label "R"]
+        node[id 2 label "R"]
+        node[id 3 label "R"]
+        edge[source 0 target 1 label ""]
+        edge[source 0 target 2 label ""]
+        edge[source 0 target 3 label ""]
+    ]
+    context[
+        node[id 0 label "A"]
+    ]
+    right[
+    ]
+]
+""")
+#+END_SRC
+** unmark
+#+Name
+#+BEGIN_SRC python
+unmark = ruleGMLString("""
+rule[
+    ruleID "unmark"
+    left[
+        node[id 0 label "A"]
+    ]
+    context[
+    ]
+    right[
+        node[id 0 label "0"]
+    ]
+]
+""")
+#+END_SRC
+  
+* Strategy
+#+NAME strategy
+#+BEGIN_SRC python 
+strat1 = (
+    addUniverse(LEVEL)
+    >> addSubset(LEVEL)
+    >> repeat(
+        mark
+        >> repeat(revive(reattachExternal))
+        >> repeat(revive(removeAttached))
+        >> repeat(revive(removeInterR))
+        >> removeR
+        >> unmark
+    )
+)
+#+END_SRC
+  

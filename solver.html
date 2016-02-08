@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+               "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>solver</title>
+<meta http-equiv="Content-Type" content="text/html;charset=iso-8859-1"/>
+<meta name="title" content="solver"/>
+<meta name="generator" content="Org-mode"/>
+<meta name="generated" content="2016-02-08T11:40+0100"/>
+<meta name="author" content="Graphenpraktikum"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  html { font-family: Times, serif; font-size: 12pt; }
+  .title  { text-align: center; }
+  .todo   { color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #add8e6; font-weight:normal }
+  .target { }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  {margin-left:auto; margin-right:0px;  text-align:right;}
+  .left   {margin-left:0px;  margin-right:auto; text-align:left;}
+  .center {margin-left:auto; margin-right:auto; text-align:center;}
+  p.verse { margin-left: 3% }
+  pre {
+	border: 1pt solid #AEBDCC;
+	background-color: #F3F5F7;
+	padding: 5pt;
+	font-family: courier, monospace;
+        font-size: 90%;
+        overflow:auto;
+  }
+  table { border-collapse: collapse; }
+  td, th { vertical-align: top;  }
+  th.right  { text-align:center;  }
+  th.left   { text-align:center;   }
+  th.center { text-align:center; }
+  td.right  { text-align:right;  }
+  td.left   { text-align:left;   }
+  td.center { text-align:center; }
+  dt { font-weight: bold; }
+  div.figure { padding: 0.5em; }
+  div.figure p { text-align: center; }
+  div.inlinetask {
+    padding:10px;
+    border:2px solid gray;
+    margin:10px;
+    background: #ffffcc;
+  }
+  textarea { overflow-x: auto; }
+  .linenr { font-size:smaller }
+  .code-highlighted {background-color:#ffff00;}
+  .org-info-js_info-navigation { border-style:none; }
+  #org-info-js_console-label { font-size:10px; font-weight:bold;
+                               white-space:nowrap; }
+  .org-info-js_search-highlight {background-color:#ffff00; color:#000000;
+                                 font-weight:bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+</head>
+<body>
+
+<div id="preamble">
+
+</div>
+
+<div id="content">
+<h1 class="title">solver</h1>
+
+
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1 catalan solver</a></li>
+<li><a href="#sec-2">2 Rules</a>
+<ul>
+<li><a href="#sec-2-1">2.1 mark</a></li>
+<li><a href="#sec-2-2">2.2 reattachExternal</a></li>
+<li><a href="#sec-2-3">2.3 removeAttached</a></li>
+<li><a href="#sec-2-4">2.4 removeR</a></li>
+<li><a href="#sec-2-5">2.5 unmark</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3 Strategy</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> catalan solver</h2>
+<div class="outline-text-2" id="text-1">
+
+<ul>
+<li>no <b>FAIL</b> label
+</li>
+<li>instead: <b>constraintAdj[id 0 op = count 3]</b> for mark rule
+</li>
+<li><a href="./solver-summary.pdf">rules pdf</a> and example 
+</li>
+<li><a href="./solver-shallow-grave.pdf">shallow grave pdf</a>
+</li>
+<li><a href="./solver-shallow-grave-path.pdf">shallow grave path pdf</a>
+</li>
+</ul>
+
+</div>
+
+</div>
+
+<div id="outline-container-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Rules</h2>
+<div class="outline-text-2" id="text-2">
+
+
+</div>
+
+<div id="outline-container-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> mark</h3>
+<div class="outline-text-3" id="text-2-1">
+
+
+
+
+<pre class="example">mark = ruleGMLString("""
+rule[
+    ruleID "mark"
+    left[
+        node[id 0 label "0"]
+        node[id 1 label "0"]
+        node[id 2 label "0"]
+        node[id 3 label "0"]       
+    ]
+    context[
+        edge[source 0 target 1 label ""]
+        edge[source 0 target 2 label ""]
+        edge[source 0 target 3 label ""]
+    ]
+    right[
+        node[id 0 label "A"]
+        node[id 1 label "R"]
+        node[id 2 label "R"]
+        node[id 3 label "R"]               
+    ]
+    constrainAdj [
+        id 0
+        op = count 3
+    ]
+]
+""")
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> reattachExternal</h3>
+<div class="outline-text-3" id="text-2-2">
+
+
+
+
+<pre class="example">reattachExternal = ruleGMLString("""
+rule[
+    ruleID "reattachExternal"
+    left[
+        edge[source 1 target 2 label ""]
+    ]
+    context[
+        node[id 0 label "A"]
+        node[id 1 label "0"]
+        node[id 2 label "R"]
+        node[id 3 label "R"]
+        edge[source 0 target 2 label ""]
+        edge[source 0 target 3 label ""]
+    ]
+    right[
+        edge[source 1 target 0 label ""]
+    ]
+    constrainAdj[
+        id 1
+        op = count 0 nodeLabels [label "A"]
+    ]
+]
+""")
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> removeAttached</h3>
+<div class="outline-text-3" id="text-2-3">
+
+
+
+
+<pre class="example">removeAttached = ruleGMLString("""
+rule[
+    ruleID "removeAttached"
+    left[
+        edge[source 1 target 2 label ""]
+    ]
+    context[
+        node[id 0 label "A"]
+        node[id 1 label "R"]
+        node[id 2 label "R"]
+        edge[source 0 target 1 label ""]
+        edge[source 0 target 2 label ""]
+    ]
+    right[
+    ]
+]
+""")
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> removeR</h3>
+<div class="outline-text-3" id="text-2-4">
+
+
+
+
+<pre class="example">removeR = ruleGMLString("""
+rule[
+    ruleID "removeR"
+    left[
+        node[id 1 label "R"]
+        node[id 2 label "R"]
+        node[id 3 label "R"]
+        edge[source 0 target 1 label ""]
+        edge[source 0 target 2 label ""]
+        edge[source 0 target 3 label ""]
+    ]
+    context[
+        node[id 0 label "A"]
+    ]
+    right[
+    ]
+]
+""")
+</pre>
+
+</div>
+
+</div>
+
+<div id="outline-container-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> unmark</h3>
+<div class="outline-text-3" id="text-2-5">
+
+
+
+
+<pre class="example">unmark = ruleGMLString("""
+rule[
+    ruleID "unmark"
+    left[
+        node[id 0 label "A"]
+    ]
+    context[
+    ]
+    right[
+        node[id 0 label "0"]
+    ]
+]
+""")
+</pre>
+
+
+</div>
+</div>
+
+</div>
+
+<div id="outline-container-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Strategy</h2>
+<div class="outline-text-2" id="text-3">
+
+
+
+
+<pre class="example">strat1 = (
+    addUniverse(LEVEL)
+    &gt;&gt; addSubset(LEVEL)
+    &gt;&gt; repeat(
+        mark
+        &gt;&gt; repeat(revive(reattachExternal))
+        &gt;&gt; repeat(revive(removeAttached))
+        &gt;&gt; repeat(revive(removeInterR))
+        &gt;&gt; removeR
+        &gt;&gt; unmark
+    )
+)
+</pre>
+
+
+</div>
+</div>
+</div>
+
+<div id="postamble">
+<p class="date">Date: 2016-02-08T11:40+0100</p>
+<p class="author">Author: Graphenpraktikum</p>
+<p class="creator"><a href="http://orgmode.org">Org</a> version 7.9.3f with <a href="http://www.gnu.org/software/emacs/">Emacs</a> version 24</p>
+<a href="http://validator.w3.org/check?uri=referer">Validate XHTML 1.0</a>
+
+</div>
+</body>
+</html>
