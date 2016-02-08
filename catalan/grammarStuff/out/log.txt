@@ -25,3 +25,7 @@ Repeat, limit = 2
          Substrat 0
          Got 5577 graphs
          Substrat 1
+         Got 31054 graphs
+         Substrat 2
+         Got 113176 graphs
+         Substrat 3

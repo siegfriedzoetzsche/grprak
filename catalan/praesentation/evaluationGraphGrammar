@@ -11,3 +11,51 @@
 Success seed:
 
 665 graphs
+
+| start graph | #graphs | substrat |
+|             |         |          |
+| ZIR         |   86006 | 0,1      |
+| OIR         |  103335 | 0,1,2    |
+| TIR         |   83020 | 0,1      |
+| TRIR        |  119807 | 0,1,2    |
+|-------------+---------+----------|
+| Sum         |  392168 |          |
+ 
+
+Out:
+
+~/Siggi/catalan/grammarStuff $ mod -f catalanGrammarTRIRseed.py --nopost
+MØD Wrapper --------------------------------------------------------
+Prefix: /homes/brauerei2/jlandersen/shared/bin/..
+MedØlDatschgerl version repo_1a26335
+
+Input --------------------------------------------------------------
+(see out/input)
+Command ------------------------------------------------------------
+ python3 out/input
+Running VM ---------------------------------------------------------
+Executing code from 'catalanGrammarTRIRseed.py'
+Executing code from 'catalanBuildRulesSimon.py'
+End of code from 'catalanBuildRulesSimon.py'
+Executing code from 'trirSeed.py'
+End of code from 'trirSeed.py'
+Repeat, limit = 2
+   Substrat 0
+      Repeat, limit = 4294967295
+         Substrat 0
+         Got 3 graphs
+         Substrat 1
+         Got 9 graphs
+         Substrat 2
+         Got 23 graphs
+         Substrat 3
+         Got 23 graphs
+   Got 125 graphs
+   Substrat 1
+      Repeat, limit = 4294967295
+         Substrat 0
+         Got 5577 graphs
+         Substrat 1
+         Got 31054 graphs
+         Substrat 2
+         Got 113176 graphs
