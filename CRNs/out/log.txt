@@ -1,0 +1,21 @@
+Input --------------------------------------------------------------
+(see out/input)
+Command ------------------------------------------------------------
+ python3 out/input
+Running VM ---------------------------------------------------------
+Executing code from 'CRNStrategy.py'
+Traceback (most recent call last):
+  File "out/input", line 45, in <module>
+    include("CRNStrategy.py")
+  File "out/input", line 36, in include
+    exec(code, globals())
+  File "CRNStrategy.py", line 1, in <module>
+    test = smiles("RCC=O", name="Test")
+  File "/homes/brauerei2/jlandersen/shared/lib/mod/__init__.py", line 478, in smiles
+    a = mod_.smiles(s)
+RuntimeError: Error in graph loading from smiles string, 'RCC=O'.
+
+
+real	0m0.204s
+user	0m0.167s
+sys	0m0.028s

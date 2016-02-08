@@ -1,0 +1,5 @@
+
+out/000_g_0.10100000.pdf: out/000_g_0.coord.tex
+	/homes/brauerei2/jlandersen/shared/bin/../bin/mod_post --mode compileTikz "out/000_g_0.10100000" "out/000_g_0.coord"
+out/000_g_0.11110100.pdf: out/000_g_0.mol.coord.tex
+	/homes/brauerei2/jlandersen/shared/bin/../bin/mod_post --mode compileTikz "out/000_g_0.11110100" "out/000_g_0.mol.coord"
